@@ -30,18 +30,17 @@ const replacements: { [key: string]: string; } =
 
 export function clml(strings: TemplateStringsArray, ...args: string[]): string
 {
+	let cloned: string[] = Array.from(strings);
+
 	// Do all replacements.
 	Object.keys(replacements).forEach((key: string): void =>
 	{
 		const val: string = replacements[key];
-		strings.forEach((string: string): void =>
-		{
-			string = string.replace(new RegExp(`<${key}>`, 'gmi'), val);
-		});
+		cloned = cloned.map((string: string): string => string.replace(new RegExp(`<${key}>`, 'gmi'), val));
 	});
 
 	// Do all special mutations.
-	strings.forEach((string: string): void =>
+	cloned = cloned.map((string: string): string =>
 	{
 		// 255-color tag
 		string = string.replace(/<255(?:-bg)? (?:\d\d?\d?)>/gmi, (substring: string): string =>
@@ -76,14 +75,16 @@ export function clml(strings: TemplateStringsArray, ...args: string[]): string
 		// Emoji tags
 		string = string.replace(/<:[a-z0-9\-]:>/gmi, (substring: string): string =>
 			emoji.emojify(substring.substring(1, substring.length - 1).toLowerCase()));
+
+		return string;
 	});
 
 	// Join the final output.
 	let output: string = '';
-	strings.forEach((string: string, i: number): void =>
+	cloned.forEach((string: string, i: number): void =>
 	{
 		output += string;
-		output += args[i];
+		output += args[i] || '';
 	});
 
 	return output;
