@@ -4,6 +4,7 @@
   "description": "A format for marking up command line output using xml-like syntax.",
   "main": "index.js",
   "author": "Jack Johannesen",
+  "repository": { "type": "git", "url": "https://github.com/K4rakara/clml" },
   "license": "MIT",
   "dependencies": {
     "node-emoji": "^1.10.0"
