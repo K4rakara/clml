@@ -6,11 +6,9 @@
   "author": "Jack Johannesen",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.1.0",
     "node-emoji": "^1.10.0"
   },
   "devDependencies": {
-    "@types/chalk": "^2.2.0",
     "@types/node-emoji": "^1.8.1",
     "typescript": "^3.9.5"
   }
