@@ -1,6 +1,6 @@
 {
   "name": "clml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A format for marking up command line output using xml-like syntax.",
   "main": "index.js",
   "author": "Jack Johannesen",
