@@ -73,7 +73,7 @@ export function clml(strings: TemplateStringsArray, ...args: string[]): string
 			`\u001B[${substring.match(/(?<=<backward )\d+/gmi)?.toString()}D`);
 
 		// Emoji tags
-		string = string.replace(/<:[a-z0-9\-]:>/gmi, (substring: string): string =>
+		string = string.replace(/<:[a-z0-9\-]+:>/gmi, (substring: string): string =>
 			emoji.emojify(substring.substring(1, substring.length - 1).toLowerCase()));
 
 		return string;
