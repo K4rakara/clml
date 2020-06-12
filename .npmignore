@@ -1,0 +1,6 @@
+!index.js
+node_modules
+index.ts
+tsconfig.json
+test
+.vscode
